@@ -16,7 +16,7 @@ export const FormInput = ({type, name, value, required, placeHolder}: FormInputP
     value = name?.split(".").reduce((obj, key) => obj?.[key], initialValues);
   }
   const handleChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.name === 'age' ? +event.target.value : event.target.value;
+    const value = event.target.name === "age" ? +event.target.value : event.target.value;
 
     if (handleChange) {
       handleChange(name, value);

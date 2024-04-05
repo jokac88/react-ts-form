@@ -1,6 +1,6 @@
 import {ReactNode, Dispatch, SetStateAction, createContext, useState, FormEvent} from "react";
 import {User} from "../../types.ts";
-import '../style.scss';
+import "../style.scss";
 
 export interface FormProps {
   initialValues?: User;
@@ -18,14 +18,14 @@ export const Form = ({initialValues, onSubmit, children}: FormProps) => {
   const [values, setValues] = useState(initialValues);
 
   const handleChange = (name?: string, value?: string | number) => {
-    if(name && value !== undefined) {
+    if (name && value !== undefined) {
       setValues((prevValues: any) => {
-        if (name.includes('.')) {
-          const [parentKey, childKey] = name.split('.');
+        if (name.includes(".")) {
+          const [parentKey, childKey] = name.split(".");
           return {
             ...prevValues,
             [parentKey]: {
-              ...prevValues[parentKey as keyof User['phone']],
+              ...prevValues[parentKey as keyof User["phone"]],
               [childKey]: value,
             },
           };
@@ -43,7 +43,7 @@ export const Form = ({initialValues, onSubmit, children}: FormProps) => {
     event.preventDefault();
     onSubmit(values);
     alert("Successfully updated user info. :)");
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    window.scrollTo({top: 0, behavior: "smooth"});
   };
 
   return (
