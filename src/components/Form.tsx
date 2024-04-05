@@ -42,7 +42,8 @@ export const Form = ({initialValues, onSubmit, children}: FormProps) => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     onSubmit(values);
-    alert("Successfully updated user info.");
+    alert("Successfully updated user info. :)");
+    window.scrollTo({top: 0, behavior: 'smooth'});
   };
 
   return (

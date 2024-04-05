@@ -23,20 +23,19 @@ export const FormInput = ({type, name, value, required, placeHolder}: FormInputP
     }
   };
 
-  const getLabelName: { [key: string]: string } = {
+  const getLabelValue: { [key: string]: string } = {
     "email": "Email:",
     "age": "Age:",
     "name": "Name:",
-    "phone.ext": "Phone:",
-    "phone.number": "Number:",
-    "default": "Default"
+    "phone.ext": "Ext:",
+    "phone.number": "Number:"
   };
   const defaultLabelName = "Label:";
 
   return (
     <div className="form-group">
       {name &&
-          <label htmlFor={name}>{getLabelName[name] || defaultLabelName}</label>
+          <label htmlFor={name}>{getLabelValue[name] || defaultLabelName}</label>
       }
       <input
         type={type}
