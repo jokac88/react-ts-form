@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {useState} from "react";
+import {Form} from "./components/Form.tsx";
+import {FormInput} from "./components/FormInput.tsx";
+import "./App.css";
+import {User} from "../types.ts";
 
-function App() {
-  const [count, setCount] = useState(0)
+export const PageWithForm = () => {
+  // Example
+  const [userInfo, setUserInfo] = useState<User | undefined>({
+    email: "example@alea.com",
+    age: 30,
+    name: "John Doe",
+    phone: {
+      ext: "00387",
+      number: "65/123-456",
+    },
+  });
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="wrapper">
+      <div className="user-info">
+        <h2>User info:</h2>
+        <p>Email: <span>{userInfo?.email}</span></p>
+        <p>Age: <span>{userInfo?.age}</span></p>
+        <p>Name: <span>{userInfo?.name}</span></p>
+        <p>Ext: <span>{userInfo?.phone.ext || "/"}</span></p>
+        <p>Number: <span>{userInfo?.phone.number || "/"}</span></p>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
 
-export default App
+      <Form initialValues={userInfo} onSubmit={setUserInfo}>
+        <FormInput
+          type="email"
+          required
+          name="email"
+          placeHolder="your@email.com"
+        />
+        <FormInput type="number" name="age"/>
+        <FormInput type="text" required name="name"/>
+        <FormInput type="text" name="phone.ext"/>
+        <FormInput type="text" name="phone.number"/>
+        <FormInput type="submit" value="Submit"/>
+      </Form>
+    </div>
+  );
+};

@@ -1,0 +1,72 @@
+// Define breakpoints
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 992px;
+$breakpoint-extra-large: 1200px;
+
+.wrapper {
+  flex: 0 500px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  padding: 2rem;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  row-gap: .5rem;
+  padding: 1rem;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  background-color: #404040;
+
+  h2 {
+    text-align: center;
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+
+    > span {
+      font-weight: bold;
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: .6rem;
+
+  &-group {
+    display: flex;
+    flex-direction: column;
+    row-gap: .2rem;
+  }
+
+  input {
+    font-size: 1rem;
+    padding: .5rem;
+
+    &[type="submit"] {
+      height: 40px;
+      padding: .5rem;
+      margin-top: 2px;
+      background-color: #808080;
+      border: none;
+      border-radius: 3px;
+      font-size: 1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: background-color .3s ease;
+
+      &:hover {
+        background-color: #666666;
+      }
+    }
+  }
+}
