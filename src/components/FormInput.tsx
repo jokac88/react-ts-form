@@ -1,5 +1,5 @@
 import {ChangeEvent} from "react";
-import {useFormContext} from "./useFormContext.tsx";
+import {useFormContext} from "./useFormContext.ts";
 
 interface FormInputProps {
   type: string;
