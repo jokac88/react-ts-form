@@ -9,7 +9,7 @@ $breakpoint-extra-large: 1200px;
   display: flex;
   flex-direction: column;
   row-gap: 2rem;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .user-info {
@@ -49,14 +49,16 @@ $breakpoint-extra-large: 1200px;
   input {
     font-size: 1rem;
     padding: .5rem;
+    border: none;
+    background-color: #3b3b3b;
+    color: #ffffff;
+    border-radius: 3px;
 
     &[type="submit"] {
       height: 40px;
       padding: .5rem;
       margin-top: 2px;
       background-color: #808080;
-      border: none;
-      border-radius: 3px;
       font-size: 1rem;
       font-weight: bold;
       text-transform: uppercase;
